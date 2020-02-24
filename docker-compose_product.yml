@@ -1,0 +1,36 @@
+version: '3.7'
+
+services:
+    mongodb:
+        image: mongo
+        container_name: mongodb
+        restart: always
+        environment:
+            MONGO_INITDB_ROOT_USERNAME: admin
+            MONGO_INITDB_ROOT_PASSWORD: admin123
+            MONGO_INITDB_DATABASE: strapi
+        ports:
+            - 27017:27017
+        volumes:
+            - ./mongo-init.js:/docker-entrypoint-initdb.d/mongo-init.js:ro
+            - ./db:/data/db
+
+    strapi-production:
+      container_name: strapi-production
+      image: strapi/strapi
+      ports: # port yönlendirmeleri
+        - "1337:1337"
+      environment:
+        - NODE_ENV=production
+        - DATABASE_CLIENT=mongo
+        - DATABASE_HOST=db
+        - DATABASE_PORT=27017
+        - DATABASE_NAME=strapi
+        - DATABASE_USERNAME=strapi
+        - DATABASE_PASSWORD=strapi123
+      volumes:
+        - ./app:/srv/app
+      depends_on:
+        - mongodb
+      links:
+        - mongodb
