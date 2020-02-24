@@ -5,7 +5,7 @@
       "connector": "mongoose",
       "settings": {
         "client": "mongo",
-        "host": "db",
+        "host": "mongodb",
         "port": 27017,
         "database": "strapi",
         "username": "strapi",	

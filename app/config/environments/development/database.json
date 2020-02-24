@@ -8,8 +8,8 @@
         "host": "116.203.41.155",
         "port": 27017,
         "database": "strapi",
-        "username": "strapi",	
-        "password": "strapi123"
+        "username": "admin",	
+        "password": "admin123"
       },
       "options": {
         "ssl": false
