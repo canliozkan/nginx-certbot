@@ -1,4 +1,5 @@
 FROM nginx
+RUN mkdir /etc/pki
 RUN mkdir /etc/pki/nginx
 RUN mkdir /etc/pki/nginx/private
 RUN chmod 700 /etc/pki/nginx
