@@ -5,7 +5,11 @@ db.createUser(
         roles: [
             {
                 role: "readWrite",
-                db: "strapiDB"
+                db: "strapi"
+            },
+            {
+                role: "readWrite",
+                db: "admin"
             }
         ]
     }

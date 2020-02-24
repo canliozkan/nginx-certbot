@@ -8,7 +8,7 @@ services:
         environment:
             MONGO_INITDB_ROOT_USERNAME: admin
             MONGO_INITDB_ROOT_PASSWORD: admin123
-            MONGO_INITDB_DATABASE: strapiDB
+            MONGO_INITDB_DATABASE: strapi
         ports:
             - 27017:27017
         volumes:
@@ -25,7 +25,7 @@ services:
         - DATABASE_CLIENT=mongo
         - DATABASE_HOST=db
         - DATABASE_PORT=27017
-        - DATABASE_NAME=strapiDB
+        - DATABASE_NAME=strapi
         - DATABASE_USERNAME=strapi
         - DATABASE_PASSWORD=strapi123
       volumes:

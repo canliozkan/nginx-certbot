@@ -9,12 +9,28 @@ type ComponentPricesPrices {
   updatedAt: DateTime!
 }
 
+input createEnPrivacyInput {
+  data: EnPrivacyInput
+}
+
+type createEnPrivacyPayload {
+  enPrivacy: EnPrivacy
+}
+
 input createEnSchoolInput {
   data: EnSchoolInput
 }
 
 type createEnSchoolPayload {
   enSchool: EnSchools
+}
+
+input createEnTermsConditionInput {
+  data: EnTermsConditionInput
+}
+
+type createEnTermsConditionPayload {
+  enTermsCondition: EnTermsConditions
 }
 
 input createRoleInput {
@@ -25,12 +41,28 @@ type createRolePayload {
   role: UsersPermissionsRole
 }
 
+input createTrPrivacyInput {
+  data: TrPrivacyInput
+}
+
+type createTrPrivacyPayload {
+  trPrivacy: TrPrivacy
+}
+
 input createTrSchoolInput {
   data: TrSchoolInput
 }
 
 type createTrSchoolPayload {
   trSchool: TrSchools
+}
+
+input createTrTermsConditionInput {
+  data: TrTermsConditionInput
+}
+
+type createTrTermsConditionPayload {
+  trTermsCondition: TrTermsConditions
 }
 
 input createUserInput {
@@ -55,12 +87,28 @@ A date-time string at UTC, such as 2007-12-03T10:15:30Z, compliant with the
 """
 scalar DateTime
 
+input deleteEnPrivacyInput {
+  where: InputID
+}
+
+type deleteEnPrivacyPayload {
+  enPrivacy: EnPrivacy
+}
+
 input deleteEnSchoolInput {
   where: InputID
 }
 
 type deleteEnSchoolPayload {
   enSchool: EnSchools
+}
+
+input deleteEnTermsConditionInput {
+  where: InputID
+}
+
+type deleteEnTermsConditionPayload {
+  enTermsCondition: EnTermsConditions
 }
 
 input deleteRoleInput {
@@ -71,12 +119,28 @@ type deleteRolePayload {
   role: UsersPermissionsRole
 }
 
+input deleteTrPrivacyInput {
+  where: InputID
+}
+
+type deleteTrPrivacyPayload {
+  trPrivacy: TrPrivacy
+}
+
 input deleteTrSchoolInput {
   where: InputID
 }
 
 type deleteTrSchoolPayload {
   trSchool: TrSchools
+}
+
+input deleteTrTermsConditionInput {
+  where: InputID
+}
+
+type deleteTrTermsConditionPayload {
+  trTermsCondition: TrTermsConditions
 }
 
 input deleteUserInput {
@@ -91,6 +155,11 @@ input editComponentPricesPriceInput {
   id: ID
 }
 
+input editEnPrivacyInput {
+  content: String
+  title: String
+}
+
 input editEnSchoolInput {
   shortName: String
   active: Boolean
@@ -103,6 +172,11 @@ input editEnSchoolInput {
   photo: ID
   detailsLink: String
   prices: JSON
+}
+
+input editEnTermsConditionInput {
+  title: String
+  content: String
 }
 
 input editFileInput {
@@ -126,6 +200,11 @@ input editRoleInput {
   users: [ID]
 }
 
+input editTrPrivacyInput {
+  title: String
+  content: String
+}
+
 input editTrSchoolInput {
   shortName: String
   active: Boolean
@@ -140,6 +219,11 @@ input editTrSchoolInput {
   prices: JSON
 }
 
+input editTrTermsConditionInput {
+  title: String
+  content: String
+}
+
 input editUserInput {
   username: String
   email: String
@@ -149,6 +233,70 @@ input editUserInput {
   confirmed: Boolean
   blocked: Boolean
   role: ID
+}
+
+type EnPrivacy {
+  content: String
+  title: String
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type EnPrivacyAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type EnPrivacyConnection {
+  values: [EnPrivacy]
+  groupBy: EnPrivacyGroupBy
+  aggregate: EnPrivacyAggregator
+}
+
+type EnPrivacyConnection_id {
+  key: ID
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyConnectionContent {
+  key: String
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyConnectionCreatedAt {
+  key: DateTime
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyConnectionId {
+  key: ID
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyConnectionTitle {
+  key: String
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyConnectionUpdatedAt {
+  key: DateTime
+  connection: EnPrivacyConnection
+}
+
+type EnPrivacyGroupBy {
+  content: [EnPrivacyConnectionContent]
+  title: [EnPrivacyConnectionTitle]
+  _id: [EnPrivacyConnection_id]
+  id: [EnPrivacyConnectionId]
+  createdAt: [EnPrivacyConnectionCreatedAt]
+  updatedAt: [EnPrivacyConnectionUpdatedAt]
+}
+
+input EnPrivacyInput {
+  content: String
+  title: String
 }
 
 input EnSchoolInput {
@@ -307,6 +455,70 @@ type EnSchoolsGroupBy {
   updatedAt: [EnSchoolsConnectionUpdatedAt]
 }
 
+input EnTermsConditionInput {
+  title: String
+  content: String
+}
+
+type EnTermsConditions {
+  title: String
+  content: String
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type EnTermsConditionsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type EnTermsConditionsConnection {
+  values: [EnTermsConditions]
+  groupBy: EnTermsConditionsGroupBy
+  aggregate: EnTermsConditionsAggregator
+}
+
+type EnTermsConditionsConnection_id {
+  key: ID
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsConnectionContent {
+  key: String
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsConnectionCreatedAt {
+  key: DateTime
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsConnectionId {
+  key: ID
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsConnectionTitle {
+  key: String
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsConnectionUpdatedAt {
+  key: DateTime
+  connection: EnTermsConditionsConnection
+}
+
+type EnTermsConditionsGroupBy {
+  title: [EnTermsConditionsConnectionTitle]
+  content: [EnTermsConditionsConnectionContent]
+  _id: [EnTermsConditionsConnection_id]
+  id: [EnTermsConditionsConnectionId]
+  createdAt: [EnTermsConditionsConnectionCreatedAt]
+  updatedAt: [EnTermsConditionsConnectionUpdatedAt]
+}
+
 input FileInput {
   name: String!
   hash: String!
@@ -332,15 +544,27 @@ scalar JSON
 """The `Long` scalar type represents 52-bit integers"""
 scalar Long
 
-union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | EnSchools | createEnSchoolPayload | updateEnSchoolPayload | deleteEnSchoolPayload | EnSchoolsConnection | EnSchoolsAggregator | EnSchoolsAggregatorSum | EnSchoolsAggregatorAvg | EnSchoolsAggregatorMin | EnSchoolsAggregatorMax | EnSchoolsGroupBy | EnSchoolsConnectionShortName | EnSchoolsConnectionActive | EnSchoolsConnectionName | EnSchoolsConnectionPopularity | EnSchoolsConnectionFoundYear | EnSchoolsConnectionCapacity | EnSchoolsConnectionLatitude | EnSchoolsConnectionLongitute | EnSchoolsConnectionPhoto | EnSchoolsConnectionDetailsLink | EnSchoolsConnectionPrices | EnSchoolsConnection_id | EnSchoolsConnectionId | EnSchoolsConnectionCreatedAt | EnSchoolsConnectionUpdatedAt | TrSchools | createTrSchoolPayload | updateTrSchoolPayload | deleteTrSchoolPayload | TrSchoolsConnection | TrSchoolsAggregator | TrSchoolsAggregatorSum | TrSchoolsAggregatorAvg | TrSchoolsAggregatorMin | TrSchoolsAggregatorMax | TrSchoolsGroupBy | TrSchoolsConnectionShortName | TrSchoolsConnectionActive | TrSchoolsConnectionName | TrSchoolsConnectionPopularity | TrSchoolsConnectionFoundYear | TrSchoolsConnectionCapacity | TrSchoolsConnectionLatitude | TrSchoolsConnectionLongitute | TrSchoolsConnectionPhoto | TrSchoolsConnectionDetailsLink | TrSchoolsConnectionPrices | TrSchoolsConnection_id | TrSchoolsConnectionId | TrSchoolsConnectionCreatedAt | TrSchoolsConnectionUpdatedAt | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnection_id | UploadFileConnectionId | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionCreatedAt | UsersPermissionsRoleConnectionUpdatedAt | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt
+union Morph = UsersPermissionsMe | UsersPermissionsMeRole | UsersPermissionsLoginPayload | EnPrivacy | createEnPrivacyPayload | updateEnPrivacyPayload | deleteEnPrivacyPayload | EnPrivacyConnection | EnPrivacyAggregator | EnPrivacyGroupBy | EnPrivacyConnectionContent | EnPrivacyConnectionTitle | EnPrivacyConnection_id | EnPrivacyConnectionId | EnPrivacyConnectionCreatedAt | EnPrivacyConnectionUpdatedAt | EnSchools | createEnSchoolPayload | updateEnSchoolPayload | deleteEnSchoolPayload | EnSchoolsConnection | EnSchoolsAggregator | EnSchoolsAggregatorSum | EnSchoolsAggregatorAvg | EnSchoolsAggregatorMin | EnSchoolsAggregatorMax | EnSchoolsGroupBy | EnSchoolsConnectionShortName | EnSchoolsConnectionActive | EnSchoolsConnectionName | EnSchoolsConnectionPopularity | EnSchoolsConnectionFoundYear | EnSchoolsConnectionCapacity | EnSchoolsConnectionLatitude | EnSchoolsConnectionLongitute | EnSchoolsConnectionPhoto | EnSchoolsConnectionDetailsLink | EnSchoolsConnectionPrices | EnSchoolsConnection_id | EnSchoolsConnectionId | EnSchoolsConnectionCreatedAt | EnSchoolsConnectionUpdatedAt | EnTermsConditions | createEnTermsConditionPayload | updateEnTermsConditionPayload | deleteEnTermsConditionPayload | EnTermsConditionsConnection | EnTermsConditionsAggregator | EnTermsConditionsGroupBy | EnTermsConditionsConnectionTitle | EnTermsConditionsConnectionContent | EnTermsConditionsConnection_id | EnTermsConditionsConnectionId | EnTermsConditionsConnectionCreatedAt | EnTermsConditionsConnectionUpdatedAt | TrPrivacy | createTrPrivacyPayload | updateTrPrivacyPayload | deleteTrPrivacyPayload | TrPrivacyConnection | TrPrivacyAggregator | TrPrivacyGroupBy | TrPrivacyConnectionTitle | TrPrivacyConnectionContent | TrPrivacyConnection_id | TrPrivacyConnectionId | TrPrivacyConnectionCreatedAt | TrPrivacyConnectionUpdatedAt | TrSchools | createTrSchoolPayload | updateTrSchoolPayload | deleteTrSchoolPayload | TrSchoolsConnection | TrSchoolsAggregator | TrSchoolsAggregatorSum | TrSchoolsAggregatorAvg | TrSchoolsAggregatorMin | TrSchoolsAggregatorMax | TrSchoolsGroupBy | TrSchoolsConnectionShortName | TrSchoolsConnectionActive | TrSchoolsConnectionName | TrSchoolsConnectionPopularity | TrSchoolsConnectionFoundYear | TrSchoolsConnectionCapacity | TrSchoolsConnectionLatitude | TrSchoolsConnectionLongitute | TrSchoolsConnectionPhoto | TrSchoolsConnectionDetailsLink | TrSchoolsConnectionPrices | TrSchoolsConnection_id | TrSchoolsConnectionId | TrSchoolsConnectionCreatedAt | TrSchoolsConnectionUpdatedAt | TrTermsConditions | createTrTermsConditionPayload | updateTrTermsConditionPayload | deleteTrTermsConditionPayload | TrTermsConditionsConnection | TrTermsConditionsAggregator | TrTermsConditionsGroupBy | TrTermsConditionsConnectionTitle | TrTermsConditionsConnectionContent | TrTermsConditionsConnection_id | TrTermsConditionsConnectionId | TrTermsConditionsConnectionCreatedAt | TrTermsConditionsConnectionUpdatedAt | UploadFile | UploadFileConnection | UploadFileAggregator | UploadFileGroupBy | UploadFileConnectionName | UploadFileConnectionHash | UploadFileConnectionSha256 | UploadFileConnectionExt | UploadFileConnectionMime | UploadFileConnectionSize | UploadFileConnectionUrl | UploadFileConnectionProvider | UploadFileConnectionProvider_metadata | UploadFileConnection_id | UploadFileConnectionId | UploadFileConnectionCreatedAt | UploadFileConnectionUpdatedAt | UsersPermissionsPermission | UsersPermissionsRole | createRolePayload | updateRolePayload | deleteRolePayload | UsersPermissionsRoleConnection | UsersPermissionsRoleAggregator | UsersPermissionsRoleGroupBy | UsersPermissionsRoleConnectionName | UsersPermissionsRoleConnectionDescription | UsersPermissionsRoleConnectionType | UsersPermissionsRoleConnection_id | UsersPermissionsRoleConnectionId | UsersPermissionsRoleConnectionCreatedAt | UsersPermissionsRoleConnectionUpdatedAt | UsersPermissionsUser | createUserPayload | updateUserPayload | deleteUserPayload | UsersPermissionsUserConnection | UsersPermissionsUserAggregator | UsersPermissionsUserGroupBy | UsersPermissionsUserConnectionUsername | UsersPermissionsUserConnectionEmail | UsersPermissionsUserConnectionProvider | UsersPermissionsUserConnectionConfirmed | UsersPermissionsUserConnectionBlocked | UsersPermissionsUserConnectionRole | UsersPermissionsUserConnection_id | UsersPermissionsUserConnectionId | UsersPermissionsUserConnectionCreatedAt | UsersPermissionsUserConnectionUpdatedAt
 
 type Mutation {
+  createEnPrivacy(input: createEnPrivacyInput): createEnPrivacyPayload
+  updateEnPrivacy(input: updateEnPrivacyInput): updateEnPrivacyPayload
+  deleteEnPrivacy(input: deleteEnPrivacyInput): deleteEnPrivacyPayload
   createEnSchool(input: createEnSchoolInput): createEnSchoolPayload
   updateEnSchool(input: updateEnSchoolInput): updateEnSchoolPayload
   deleteEnSchool(input: deleteEnSchoolInput): deleteEnSchoolPayload
+  createEnTermsCondition(input: createEnTermsConditionInput): createEnTermsConditionPayload
+  updateEnTermsCondition(input: updateEnTermsConditionInput): updateEnTermsConditionPayload
+  deleteEnTermsCondition(input: deleteEnTermsConditionInput): deleteEnTermsConditionPayload
+  createTrPrivacy(input: createTrPrivacyInput): createTrPrivacyPayload
+  updateTrPrivacy(input: updateTrPrivacyInput): updateTrPrivacyPayload
+  deleteTrPrivacy(input: deleteTrPrivacyInput): deleteTrPrivacyPayload
   createTrSchool(input: createTrSchoolInput): createTrSchoolPayload
   updateTrSchool(input: updateTrSchoolInput): updateTrSchoolPayload
   deleteTrSchool(input: deleteTrSchoolInput): deleteTrSchoolPayload
+  createTrTermsCondition(input: createTrTermsConditionInput): createTrTermsConditionPayload
+  updateTrTermsCondition(input: updateTrTermsConditionInput): updateTrTermsConditionPayload
+  deleteTrTermsCondition(input: deleteTrTermsConditionInput): deleteTrTermsConditionPayload
 
   """Create a new role"""
   createRole(input: createRoleInput): createRolePayload
@@ -366,12 +590,24 @@ type Mutation {
 }
 
 type Query {
+  enPrivacy(id: ID!): EnPrivacy
+  enPrivacies(sort: String, limit: Int, start: Int, where: JSON): [EnPrivacy]
+  enPrivaciesConnection(sort: String, limit: Int, start: Int, where: JSON): EnPrivacyConnection
   enSchool(id: ID!): EnSchools
   enSchools(sort: String, limit: Int, start: Int, where: JSON): [EnSchools]
   enSchoolsConnection(sort: String, limit: Int, start: Int, where: JSON): EnSchoolsConnection
+  enTermsCondition(id: ID!): EnTermsConditions
+  enTermsConditions(sort: String, limit: Int, start: Int, where: JSON): [EnTermsConditions]
+  enTermsConditionsConnection(sort: String, limit: Int, start: Int, where: JSON): EnTermsConditionsConnection
+  trPrivacy(id: ID!): TrPrivacy
+  trPrivacies(sort: String, limit: Int, start: Int, where: JSON): [TrPrivacy]
+  trPrivaciesConnection(sort: String, limit: Int, start: Int, where: JSON): TrPrivacyConnection
   trSchool(id: ID!): TrSchools
   trSchools(sort: String, limit: Int, start: Int, where: JSON): [TrSchools]
   trSchoolsConnection(sort: String, limit: Int, start: Int, where: JSON): TrSchoolsConnection
+  trTermsCondition(id: ID!): TrTermsConditions
+  trTermsConditions(sort: String, limit: Int, start: Int, where: JSON): [TrTermsConditions]
+  trTermsConditionsConnection(sort: String, limit: Int, start: Int, where: JSON): TrTermsConditionsConnection
   files(sort: String, limit: Int, start: Int, where: JSON): [UploadFile]
   filesConnection(sort: String, limit: Int, start: Int, where: JSON): UploadFileConnection
   role(id: ID!): UsersPermissionsRole
@@ -397,6 +633,70 @@ input RoleInput {
 
 """A time string with format: HH:mm:ss.SSS"""
 scalar Time
+
+type TrPrivacy {
+  title: String
+  content: String
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TrPrivacyAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TrPrivacyConnection {
+  values: [TrPrivacy]
+  groupBy: TrPrivacyGroupBy
+  aggregate: TrPrivacyAggregator
+}
+
+type TrPrivacyConnection_id {
+  key: ID
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyConnectionContent {
+  key: String
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyConnectionCreatedAt {
+  key: DateTime
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyConnectionId {
+  key: ID
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyConnectionTitle {
+  key: String
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyConnectionUpdatedAt {
+  key: DateTime
+  connection: TrPrivacyConnection
+}
+
+type TrPrivacyGroupBy {
+  title: [TrPrivacyConnectionTitle]
+  content: [TrPrivacyConnectionContent]
+  _id: [TrPrivacyConnection_id]
+  id: [TrPrivacyConnectionId]
+  createdAt: [TrPrivacyConnectionCreatedAt]
+  updatedAt: [TrPrivacyConnectionUpdatedAt]
+}
+
+input TrPrivacyInput {
+  title: String
+  content: String
+}
 
 input TrSchoolInput {
   shortName: String
@@ -554,6 +854,79 @@ type TrSchoolsGroupBy {
   updatedAt: [TrSchoolsConnectionUpdatedAt]
 }
 
+input TrTermsConditionInput {
+  title: String
+  content: String
+}
+
+type TrTermsConditions {
+  title: String
+  content: String
+  _id: ID!
+  id: ID!
+  createdAt: DateTime!
+  updatedAt: DateTime!
+}
+
+type TrTermsConditionsAggregator {
+  count: Int
+  totalCount: Int
+}
+
+type TrTermsConditionsConnection {
+  values: [TrTermsConditions]
+  groupBy: TrTermsConditionsGroupBy
+  aggregate: TrTermsConditionsAggregator
+}
+
+type TrTermsConditionsConnection_id {
+  key: ID
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsConnectionContent {
+  key: String
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsConnectionCreatedAt {
+  key: DateTime
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsConnectionId {
+  key: ID
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsConnectionTitle {
+  key: String
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsConnectionUpdatedAt {
+  key: DateTime
+  connection: TrTermsConditionsConnection
+}
+
+type TrTermsConditionsGroupBy {
+  title: [TrTermsConditionsConnectionTitle]
+  content: [TrTermsConditionsConnectionContent]
+  _id: [TrTermsConditionsConnection_id]
+  id: [TrTermsConditionsConnectionId]
+  createdAt: [TrTermsConditionsConnectionCreatedAt]
+  updatedAt: [TrTermsConditionsConnectionUpdatedAt]
+}
+
+input updateEnPrivacyInput {
+  where: InputID
+  data: editEnPrivacyInput
+}
+
+type updateEnPrivacyPayload {
+  enPrivacy: EnPrivacy
+}
+
 input updateEnSchoolInput {
   where: InputID
   data: editEnSchoolInput
@@ -561,6 +934,15 @@ input updateEnSchoolInput {
 
 type updateEnSchoolPayload {
   enSchool: EnSchools
+}
+
+input updateEnTermsConditionInput {
+  where: InputID
+  data: editEnTermsConditionInput
+}
+
+type updateEnTermsConditionPayload {
+  enTermsCondition: EnTermsConditions
 }
 
 input updateRoleInput {
@@ -572,6 +954,15 @@ type updateRolePayload {
   role: UsersPermissionsRole
 }
 
+input updateTrPrivacyInput {
+  where: InputID
+  data: editTrPrivacyInput
+}
+
+type updateTrPrivacyPayload {
+  trPrivacy: TrPrivacy
+}
+
 input updateTrSchoolInput {
   where: InputID
   data: editTrSchoolInput
@@ -579,6 +970,15 @@ input updateTrSchoolInput {
 
 type updateTrSchoolPayload {
   trSchool: TrSchools
+}
+
+input updateTrTermsConditionInput {
+  where: InputID
+  data: editTrTermsConditionInput
+}
+
+type updateTrTermsConditionPayload {
+  trTermsCondition: TrTermsConditions
 }
 
 input updateUserInput {
