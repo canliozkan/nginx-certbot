@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/tr-terms-conditions",
+      "handler": "tr-terms-conditions.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/tr-terms-conditions/count",
+      "handler": "tr-terms-conditions.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/tr-terms-conditions/:id",
+      "handler": "tr-terms-conditions.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/tr-terms-conditions",
+      "handler": "tr-terms-conditions.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/tr-terms-conditions/:id",
+      "handler": "tr-terms-conditions.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/tr-terms-conditions/:id",
+      "handler": "tr-terms-conditions.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}

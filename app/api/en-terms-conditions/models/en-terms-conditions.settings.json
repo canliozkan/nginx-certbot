@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "en-terms-conditions"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  },
+  "connection": "default",
+  "collectionName": "en_terms_conditions"
+}

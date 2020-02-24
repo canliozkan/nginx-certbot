@@ -1,0 +1,22 @@
+name: gcloud
+on:
+  push:
+    branches:
+      - master
+jobs:
+  deploy:
+    name: Deploy
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout the code
+        uses: actions/checkout@v1
+        
+      - name: Prepare GCP SDK
+        uses: mathrix-education/setup-gcloud@master
+        with:
+          service-account-key: ${{ secrets.GCLOUD_DEPLOYER_B64 }} 
+      
+      - name: Deploy to Firebase
+        run:  gcloud app deploy app.yaml
+

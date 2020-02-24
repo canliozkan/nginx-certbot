@@ -1,0 +1,19 @@
+{
+  "info": {
+    "name": "tr-privacy"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "title": {
+      "type": "string"
+    },
+    "content": {
+      "type": "richtext"
+    }
+  },
+  "connection": "default",
+  "collectionName": "tr_privacies"
+}

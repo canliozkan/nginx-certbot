@@ -1,0 +1,19 @@
+{
+  "connection": "default",
+  "collectionName": "en_privacies",
+  "info": {
+    "name": "en-privacy"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "content": {
+      "type": "richtext"
+    },
+    "title": {
+      "type": "string"
+    }
+  }
+}

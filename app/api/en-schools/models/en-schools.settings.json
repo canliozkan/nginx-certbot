@@ -1,0 +1,49 @@
+{
+  "connection": "default",
+  "collectionName": "en_schools",
+  "info": {
+    "name": "en-schools"
+  },
+  "options": {
+    "increments": true,
+    "timestamps": true
+  },
+  "attributes": {
+    "shortName": {
+      "type": "string"
+    },
+    "active": {
+      "type": "boolean"
+    },
+    "name": {
+      "type": "string"
+    },
+    "popularity": {
+      "type": "integer"
+    },
+    "foundYear": {
+      "type": "string"
+    },
+    "capacity": {
+      "type": "string"
+    },
+    "latitude": {
+      "type": "string"
+    },
+    "longitute": {
+      "type": "string"
+    },
+    "photo": {
+      "model": "file",
+      "via": "related",
+      "plugin": "upload",
+      "required": false
+    },
+    "detailsLink": {
+      "type": "string"
+    },
+    "prices": {
+      "type": "json"
+    }
+  }
+}

@@ -1,0 +1,52 @@
+{
+  "routes": [
+    {
+      "method": "GET",
+      "path": "/tr-privacies",
+      "handler": "tr-privacy.find",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/tr-privacies/count",
+      "handler": "tr-privacy.count",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "GET",
+      "path": "/tr-privacies/:id",
+      "handler": "tr-privacy.findOne",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "POST",
+      "path": "/tr-privacies",
+      "handler": "tr-privacy.create",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "PUT",
+      "path": "/tr-privacies/:id",
+      "handler": "tr-privacy.update",
+      "config": {
+        "policies": []
+      }
+    },
+    {
+      "method": "DELETE",
+      "path": "/tr-privacies/:id",
+      "handler": "tr-privacy.delete",
+      "config": {
+        "policies": []
+      }
+    }
+  ]
+}
