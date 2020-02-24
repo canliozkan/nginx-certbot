@@ -8,8 +8,8 @@
         "host": "mongodb",
         "port": 27017,
         "database": "strapi",
-        "username": "strapi",	
-        "password": "strapi123"
+        "username": "admin",	
+        "password": "admin123"
       },
       "options": {
         "ssl": false

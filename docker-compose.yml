@@ -36,7 +36,7 @@ services:
         - mongodb
 
     nginx:
-        image: nginx
+        build: /data/nginx/
         restart: unless-stopped
         volumes:
           - ./data/nginx/nginx.conf:/etc/nginx/nginx.conf:ro
